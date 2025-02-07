@@ -17,7 +17,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Тир: Стреляй в яблоки!")
 
 # Загрузка изображения яблока
-target_image = pygame.image.load("image\target.jpg")  # Убедитесь, что у вас есть изображение яблока
+# target_image = pygame.image.load("image\target.jpg")  # Убедитесь, что у вас есть изображение яблока
+
+target_image = pygame.image.load("target.jpg")  # Убедитесь, что у вас есть изображение яблока
 target_img = pygame.transform.scale(target_image, (50, 50))  # Масштабируем изображение
 
 # Начальные параметры
@@ -26,7 +28,7 @@ target_y = random.randint(0, HEIGHT - 50)
 target_visible = True
 color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
-shot_time = 1000  # Время на выстрел в миллисекундах
+shot_time = 3000  # Время на выстрел в миллисекундах
 last_shot_time = pygame.time.get_ticks()
 
 
@@ -62,7 +64,7 @@ while runnig:
         target_y = random.randint(0, HEIGHT - 50)
 
     # Отрисовка
-    screen.fill(WHITE)
+    screen.fill(color)
     if target_visible:
         screen.blit(target_img, (target_x, target_y))
 
